@@ -21,7 +21,7 @@ class ThemeServiceProvider extends ServiceProvider {
      * @return void
      */
     public function boot() {
-        $this->app[Kernel::class]->pushMiddleware($this->app[BootThemeMiddleware::class]);
+        $this->app[Kernel::class]->pushMiddleware(BootThemeMiddleware::class);
     }
 
     /**
