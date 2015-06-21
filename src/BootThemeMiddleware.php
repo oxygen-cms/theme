@@ -18,8 +18,7 @@ class BootThemeMiddleware {
      *
      * @param  ThemeManager  $themes
      */
-    public function __construct(ThemeManager $themes)
-    {
+    public function __construct(ThemeManager $themes) {
         $this->themeManager = $themes;
     }
 
