@@ -2,8 +2,6 @@
 
 namespace Oxygen\Theme;
 
-use Oxygen\Core\Contracts\Config\WritableRepository;
-
 class ThemeManager {
 
     /**
@@ -11,15 +9,23 @@ class ThemeManager {
      *
      * @var array
      */
-
     protected $themes;
 
     /**
-     * Constructs the ThemeManager.
+     * The theme loader
+     *
+     * @var \Oxygen\Theme\ThemeLoader
      */
-    public function __construct(WritableRepository $config) {
+    protected $loader;
+
+    /**
+     * Constructs the ThemeManager.
+     *
+     * @param \Oxygen\Theme\ThemeLoader $loader
+     */
+    public function __construct(ThemeLoader $loader) {
         $this->themes = [];
-        $this->config = $config;
+        $this->loader = $loader;
     }
 
     /**
@@ -67,22 +73,12 @@ class ThemeManager {
     }
 
     /**
-     * Returns the current key of the theme.
+     * Returns the theme loader
      *
-     * @return string
+     * @return ThemeLoader
      */
-    public function getCurrentKey() {
-        return $this->config->get('oxygen/core::theme');
-    }
-
-    /**
-     * Sets the current theme
-     *
-     * @param string $key
-     * @return void
-     */
-    public function setCurrentKey($key) {
-        $this->config->write('oxygen/core::theme', $key);
+    public function getLoader() {
+        return $this->loader;
     }
 
     /**
@@ -91,6 +87,6 @@ class ThemeManager {
      * @return Theme
      */
     public function current() {
-        return $this->get($this->getCurrentKey());
+        return $this->get($this->loader->getCurrentTheme());
     }
 }

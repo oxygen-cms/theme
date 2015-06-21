@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Oxygen\Theme;
 
 use Closure;
