@@ -1,0 +1,4 @@
+suites:
+  oxygen_theme_suite:
+    namespace: Oxygen\Theme
+    psr4_prefix: Oxygen\Theme
