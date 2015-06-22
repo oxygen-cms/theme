@@ -53,13 +53,15 @@ class ThemeManager {
      * Returns a theme by name.
      *
      * @param string $name
-     * @return Theme
+     * @return \Oxygen\Theme\Theme
+     * @throws \Oxygen\Theme\ThemeNotFoundException if the theme was not found
      */
     public function get($name) {
-        if($name === null) {
-            return null;
+        if(isset($this->themes[$name])) {
+            return $this->themes[$name];
+        } else {
+            throw new ThemeNotFoundException('Theme ' . $name . ' not found');
         }
-        return $this->themes[$name];
     }
 
 
