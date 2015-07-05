@@ -32,7 +32,7 @@
             {
                 "name": "Theme",
                 "class": "Oxygen\\Theme\\ThemeServiceProvider",
-                "description": "Adds the Preferences Interface"
+                "description": "Adds the Theming Framework"
             }
         ]
     }
