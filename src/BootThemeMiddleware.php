@@ -30,9 +30,11 @@ class BootThemeMiddleware {
      * @return mixed
      */
     public function handle($request, Closure $next) {
-        $currentTheme = $this->themeManager->current();
-        if($currentTheme) {
+        try {
+            $currentTheme = $this->themeManager->current();
             $currentTheme->boot();
+        } catch(ThemeNotFoundException $e) {
+            // no theme to boot
         }
 
         return $next($request);
