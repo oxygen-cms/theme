@@ -87,6 +87,7 @@ class ThemeManager {
      * Returns the current theme.
      *
      * @return Theme
+     * @throws ThemeNotFoundException
      */
     public function current() {
         return $this->get($this->loader->getCurrentTheme());

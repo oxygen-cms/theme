@@ -47,7 +47,7 @@ class Theme {
     /**
      * Constructs the Theme.
      *
-     * @param $key
+     * @param string $key
      */
     public function __construct($key) {
         $this->key = $key;
@@ -134,7 +134,7 @@ class Theme {
     /**
      * Sets the boot callback.
      *
-     * @param $callback
+     * @param callable $callback
      */
     public function setBootCallback($callback) {
         $this->bootCallback = $callback;

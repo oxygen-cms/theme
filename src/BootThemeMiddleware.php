@@ -25,7 +25,7 @@ class BootThemeMiddleware {
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  mixed  $request
      * @param  \Closure  $next
      * @return mixed
      */
