@@ -14,14 +14,14 @@ class ThemeManager {
     /**
      * The theme loader
      *
-     * @var \Oxygen\Theme\ThemeLoader
+     * @var ThemeLoader
      */
     protected $loader;
 
     /**
      * Constructs the ThemeManager.
      *
-     * @param \Oxygen\Theme\ThemeLoader $loader
+     * @param ThemeLoader $loader
      */
     public function __construct(ThemeLoader $loader) {
         $this->themes = [];
@@ -53,8 +53,8 @@ class ThemeManager {
      * Returns a theme by name.
      *
      * @param string $name
-     * @return \Oxygen\Theme\Theme
-     * @throws \Oxygen\Theme\ThemeNotFoundException if the theme was not found
+     * @return Theme
+     * @throws ThemeNotFoundException if the theme was not found
      */
     public function get($name) {
         if(isset($this->themes[$name])) {
@@ -63,7 +63,6 @@ class ThemeManager {
             throw new ThemeNotFoundException('Theme ' . $name . ' not found');
         }
     }
-
 
     /**
      * Returns all themes.
