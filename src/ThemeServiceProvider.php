@@ -31,7 +31,7 @@ class ThemeServiceProvider extends ServiceProvider {
      */
     public function register() {
         $this->app->singleton(ThemeManager::class, function() {
-            return new ThemeManager($this->app[ThemeLoader::class]);
+            return new ThemeManager($this->app[CurrentThemeLoader::class]);
         });
     }
 

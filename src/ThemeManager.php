@@ -14,18 +14,32 @@ class ThemeManager {
     /**
      * The theme loader
      *
-     * @var ThemeLoader
+     * @var CurrentThemeLoader
      */
     protected $loader;
 
     /**
+     * @var string
+     */
+    protected $themeOverride;
+
+    /**
      * Constructs the ThemeManager.
      *
-     * @param ThemeLoader $loader
+     * @param CurrentThemeLoader $loader
      */
-    public function __construct(ThemeLoader $loader) {
+    public function __construct(CurrentThemeLoader $loader) {
         $this->themes = [];
         $this->loader = $loader;
+    }
+
+    /**
+     * Override the theme for the duration of the request, but do not store it for next time.
+     *
+     * @param string $override
+     */
+    public function temporarilyOverrideTheme(string $override) {
+        $this->themeOverride = $override;
     }
 
     /**
@@ -76,7 +90,7 @@ class ThemeManager {
     /**
      * Returns the theme loader
      *
-     * @return ThemeLoader
+     * @return CurrentThemeLoader
      */
     public function getLoader() {
         return $this->loader;
@@ -89,6 +103,10 @@ class ThemeManager {
      * @throws ThemeNotFoundException
      */
     public function current() {
-        return $this->get($this->loader->getCurrentTheme());
+        if($this->themeOverride !== null) {
+            return $this->get($this->themeOverride);
+        } else {
+            return $this->get($this->loader->getCurrentTheme());
+        }
     }
 }

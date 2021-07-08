@@ -2,20 +2,20 @@
 
 namespace Oxygen\Theme;
 
-interface ThemeLoader {
+interface CurrentThemeLoader {
 
     /**
      * Returns the current theme.
      *
      * @return string
      */
-    public function getCurrentTheme();
+    public function getCurrentTheme(): string;
 
     /**
      * Changes the current theme.
      *
      * @param string $theme the name of the new theme
      */
-    public function setCurrentTheme($theme);
+    public function setCurrentTheme(string $theme);
 
 }

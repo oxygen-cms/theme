@@ -2,14 +2,14 @@
 
 namespace spec\Oxygen\Theme;
 
-use Oxygen\Theme\ThemeLoader;
+use Oxygen\Theme\CurrentThemeLoader;
 use Oxygen\Theme\Theme;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
 class ThemeManagerSpec extends ObjectBehavior {
 
-    function let(ThemeLoader $loader) {
+    function let(CurrentThemeLoader $loader) {
         $this->beConstructedWith($loader);
     }
 

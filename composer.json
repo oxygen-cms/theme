@@ -11,7 +11,7 @@
     "authors": [
         {
             "name": "Chris Chamberlain",
-            "email": "c.chamberlain@iinet.net.au"
+            "email": "chris@chamberlain.id.au"
         }
     ],
     "require": {
@@ -24,17 +24,11 @@
         }
     },
     "extra": {
-        "title": "Oxygen Theme",
-        "readme": "oxygen.md",
-        "changes": "changes.md",
-        "icon": "icon.png",
-        "providers": [
-            {
-                "name": "Theme",
-                "class": "Oxygen\\Theme\\ThemeServiceProvider",
-                "description": "Adds the Theming Framework"
-            }
-        ]
+        "laravel": {
+            "providers": [
+                "Oxygen\\Theme\\ThemeServiceProvider"
+            ]
+        }
     },
     "require-dev": {
         "phpstan/phpstan": "^0.12.18"

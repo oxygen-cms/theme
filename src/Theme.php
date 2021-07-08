@@ -9,7 +9,6 @@ class Theme {
      *
      * @var string
      */
-
     protected $key;
 
     /**
@@ -17,7 +16,6 @@ class Theme {
      *
      * @var string
      */
-
     protected $name;
 
     /**
@@ -25,7 +23,6 @@ class Theme {
      *
      * @var array
      */
-
     protected $provides;
 
     /**
@@ -33,7 +30,6 @@ class Theme {
      *
      * @var string
      */
-
     protected $image;
 
     /**
@@ -41,7 +37,6 @@ class Theme {
      *
      * @var callable
      */
-
     protected $bootCallback;
 
     /**
@@ -49,7 +44,7 @@ class Theme {
      *
      * @param string $key
      */
-    public function __construct($key) {
+    public function __construct(string $key) {
         $this->key = $key;
         $this->provides = [];
         $this->bootCallback = function() {};
@@ -172,5 +167,14 @@ class Theme {
         if(isset($arguments['boot'])) {
             $this->bootCallback = $arguments['boot'];
         }
+    }
+
+    public function toArray() {
+        return [
+            'name' => $this->name,
+            'key' => $this->key,
+            'image' => $this->image,
+            'provides' => $this->provides
+        ];
     }
 }
