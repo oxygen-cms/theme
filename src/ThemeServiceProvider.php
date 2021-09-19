@@ -12,7 +12,6 @@ class ThemeServiceProvider extends ServiceProvider {
      *
      * @var bool
      */
-
     protected $defer = false;
 
     /**
