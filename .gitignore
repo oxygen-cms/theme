@@ -1,2 +1,5 @@
 /vendor
 composer.lock
+.idea/workspace.xml
+.idea/vcs.xml
+
